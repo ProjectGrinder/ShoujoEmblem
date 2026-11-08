@@ -21,7 +21,7 @@ namespace Scene
             comp.number += 1;
             if (comp.number > 1000)
             {
-                queue_change_scene<Scene::DemoSceneChange>();
+                comp.number = 0;
             }
         }
     }

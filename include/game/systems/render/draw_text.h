@@ -58,15 +58,15 @@ namespace Game::Render
                 const auto bearing_y = glyph->bearing_y;
                 const auto advance = glyph->advance;
 
-                const auto glyph_left = pen.x + bearing_x;
-                const auto glyph_bottom = pen.y - height + bearing_y;
-                const auto glyph_right = glyph_left + width;
-                const auto glyph_top = glyph_bottom + height;
+                const auto glyph_left = pen.x + static_cast<float>(bearing_x);
+                const auto glyph_bottom = pen.y - static_cast<float>(height) + static_cast<float>(bearing_y);
+                const auto glyph_right = glyph_left + static_cast<float>(width);
+                const auto glyph_top = glyph_bottom + static_cast<float>(height);
 
-                const auto glyph_bottom_left = Math::Point{glyph_left, glyph_bottom, 0};
-                const auto glyph_bottom_right = Math::Point{glyph_right, glyph_bottom, 0};
-                const auto glyph_top_left = Math::Point{glyph_left, glyph_top, 0};
-                const auto glyph_top_right = Math::Point{glyph_right, glyph_top, 0};
+                const auto glyph_bottom_left = Math::Point{.x = glyph_left, .y = glyph_bottom, .z = 0};
+                const auto glyph_bottom_right = Math::Point{.x = glyph_right, .y = glyph_bottom, .z = 0};
+                const auto glyph_top_left = Math::Point{.x = glyph_left, .y = glyph_top, .z = 0};
+                const auto glyph_top_right = Math::Point{.x = glyph_right, .y = glyph_top, .z = 0};
 
                 graph_data.emplace_back(glyph_top_left, glyph_top_right, glyph_bottom_left, glyph_bottom_right, u0, u1, v0, v1);
 
@@ -83,7 +83,7 @@ namespace Game::Render
                 auto &intent = System::Render::IntentStorage::allocate_packed();
                 intent.kind = System::Render::DrawKind::KIND_SPRITE;
 
-                Helpers::fill_common(intent, material, new_transform, (uint8_t) layer);
+                Helpers::fill_common(intent, material, new_transform, static_cast<uint8_t>(layer));
 
                 intent.common.sp = font;
                 intent.common.info.sp_id = ASSET_INDEX(font->id);

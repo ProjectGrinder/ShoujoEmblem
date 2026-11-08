@@ -3,14 +3,7 @@
 #include <variant>
 
 #include "scene/demo.h"
-#include "scene/demo_menu.h"
-#include "scene/demo_render.h"
-#include "scene/demo_rhythm.h"
-#include "scene/demo_scene_change.h"
-#include "scene/level1.h"
-#include "scene/level2.h"
 #include "scene/scene_decl.h"
-#include "scene/demo_world.h"
 #include "utils/print_debug.h"
 #include "utils/scene_utils.h"
 
@@ -18,9 +11,9 @@
 namespace Scene::Config
 {
     // starting scene
-    using StartingScene = DemoMenu;
+    using StartingScene = Demo;
 
-    using SceneTuple = std::tuple<DemoMenu, Level1, Level2, DemoWorld>;
+    using SceneTuple = std::tuple<Demo>;
     using SceneVariant = Utils::make_scene_variant_t<SceneTuple>;
     using TaskManagerVariant = Utils::make_task_manager_variant_t<SceneTuple>;
 
@@ -90,16 +83,6 @@ namespace Scene
         else
         {
             LOG_ERROR("Error: Scene %s is not in the scene tuple, cannot change to this scene", T::name);
-        }
-    }
-
-    // Scalability is my passion V2
-    inline void switch_to_level(const int level)
-    {
-        switch (level) {
-        case 0: Scene::queue_change_scene<Level1>(); break;
-        case 1: Scene::queue_change_scene<Level2>(); break;
-        default: Scene::queue_change_scene<DemoWorld>(); break;
         }
     }
 } // namespace Scene

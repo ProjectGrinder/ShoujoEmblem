@@ -1,6 +1,7 @@
 #pragma once
-#include <array>
 #include <map>
+
+#include "maths/point.h"
 
 namespace Game::Render
 {

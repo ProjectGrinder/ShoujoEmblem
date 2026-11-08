@@ -4,9 +4,6 @@
 #include "maths/point.h"
 #include "system/ecs/ecs_types.h"
 
-
-extern "C" long double get_delta_time();
-
 // TODO : Please find a better place for this
 inline float UNASSIGNED = -(1 << 24); // 2^24
 inline uint16_t INVALID_ID = UINT16_MAX;

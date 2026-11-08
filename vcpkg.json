@@ -1,5 +1,6 @@
 {
-  "dependencies": [
-    "gtest"
-  ]
+  "dependencies" : [ {
+    "name" : "gtest",
+    "version>=" : "1.17.0#1"
+  } ]
 }

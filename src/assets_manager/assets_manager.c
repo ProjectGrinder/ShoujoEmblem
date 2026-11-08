@@ -1,6 +1,9 @@
 #pragma warning(disable : 4200)
 #pragma warning(disable : 4245)
 
+#include <string.h>
+
+
 #include "system/asset_manager.h"
 #include "utils/parse_glyph.h"
 #include "utils/print_debug.h"
@@ -10,10 +13,7 @@ typedef unsigned long DWORD;
 
 extern DWORD __stdcall file_read(FileContent **content, const char *path);
 extern void __stdcall file_free(FileContent **content);
-extern void *heap_alloc(size_t size);
 extern void heap_free(void *data);
-extern void *memcpy(void *dst, const void *src, size_t size);
-extern char *strdup(const char *src);
 extern void vertex_shader_release(void **shader_handler);
 extern void pixel_shader_release(void **shader_handler);
 extern void sprite_resource_release(void **sprite_resource);

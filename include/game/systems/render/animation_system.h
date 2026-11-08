@@ -3,7 +3,7 @@
 #include "game/components/render/animator.h"
 #include "game/components/render/sprite.h"
 #include "system.h"
-
+extern "C" long double get_delta_time();
 namespace Game::Render
 {
     // TODO Later : anim state / anim_transition

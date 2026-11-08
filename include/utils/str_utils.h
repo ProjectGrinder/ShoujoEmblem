@@ -5,10 +5,11 @@
 #endif
 
 extern void *heap_alloc(size_t size);
+/*
 extern void *memcpy(void *dst, const void *src, size_t count);
 extern inline size_t strlen(const char *s);
 
-/* Needed to be optimized */
+//  Needed to be optimized
 inline int strcmp(const char *left, const char *right)
 {
     for (; *left && *left == *right; ++left, ++right)
@@ -29,3 +30,4 @@ inline char *strdup(const char *src)
 
     return (dst);
 }
+*/
