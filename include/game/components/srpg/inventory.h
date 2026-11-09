@@ -1,14 +1,8 @@
 #pragma once
+#include "game/resources/srpg/item.h"
 
 namespace Game::Srpg
 {
-
-    struct ItemInstance
-    {
-        int item_id;
-        int uses;
-    };
-
     struct Inventory
     {
         std::vector<ItemInstance> items;

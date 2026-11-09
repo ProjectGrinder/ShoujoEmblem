@@ -1,12 +1,11 @@
 #pragma once
-#include "inventory.h"
 
 namespace Game::Srpg
 {
     struct EquipmentSlot
     {
-        int slot_id{};
-        std::optional<ItemInstance> equipped;
+        EquipmentSlotId id{};
+        std::optional<EquipmentDefinition> equipped;
     };
 
     struct Equipment

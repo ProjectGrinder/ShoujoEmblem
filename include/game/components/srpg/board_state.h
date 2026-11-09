@@ -2,45 +2,6 @@
 
 namespace Game::Srpg
 {
-    enum class TurnPhase
-    {
-        // Inactive
-        WAITING,
-        // Active
-        SELECT_UNIT,
-        SELECT_COMMAND,
-        // Move Command
-        MOVING,
-        // Fight Command
-        SELECT_FIGHT_TARGET,
-        SELECT_BATTLE_SKILL,
-        FIGHTING,
-        // Field Skill Command
-        SELECT_FIELD_SKILL,
-        SELECT_FIELD_SKILL_TARGET,
-        FIELD_SKILLING,
-        // Field Item Command
-        SELECT_ITEM,
-        SELECT_ITEM_TARGET,
-        USING_ITEM,
-        // Refresh (Dance/Sing)
-        REFRESHING_UNIT,
-    };
-
-    enum class BattlePhase
-    {
-        // Enter combat
-        BEGIN,
-        // Resolve abilities
-        ABILITY,
-        // Roll accuracy and calculate damage
-        COMBAT,
-        // Resolve rendering animations
-        RESOLVE,
-        // End, remove abilities that go out of scope
-        END,
-    };
-
     enum class Objective
     {
         // Kill every single one of them
@@ -51,6 +12,20 @@ namespace Game::Srpg
         OBJECTIVE,
         // Survive X turns
         SURVIVE,
+    };
+
+    enum class BattlePhase
+    {
+        // Enter combat
+        BEGIN,
+        // Resolve rendering ability triggers
+        ABILITY,
+        // Roll accuracy and calculate damage
+        COMBAT,
+        // Resolve rendering animations
+        RESOLVE,
+        // End, remove abilities that go out of scope
+        END,
     };
 
     struct TurnState
@@ -112,7 +87,7 @@ namespace Game::Srpg
 
     struct MapResource
     {
-        
+
     };
 
     struct BoardState

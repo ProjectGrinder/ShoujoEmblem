@@ -1,8 +1,8 @@
 #pragma once
+#include "resources.h"
 
 #include "components/audio/audio_component.h"
 #include "components/render/camera.h"
-#include "components/render/flicker.h"
 #include "components/render/material.h"
 #include "components/render/sprite.h"
 #include "components/render/text.h"
@@ -10,8 +10,9 @@
 #include "components/render/transform_tween.h"
 #include "components/render/triangle.h"
 
-#include "components/srpg/actor.h"
+#include "components/srpg/abilities.h"
 #include "components/srpg/actions.h"
+#include "components/srpg/actor.h"
 #include "components/srpg/board_state.h"
 #include "components/srpg/equipment.h"
 #include "components/srpg/faction.h"
