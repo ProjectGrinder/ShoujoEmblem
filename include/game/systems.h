@@ -6,8 +6,6 @@
 #include "game/systems/input_system.h"
 // Main Menu Part
 
-// Rendering Part
-#include "systems/render/animation_system.h"
 // Render Intent
 #include "systems/render/draw_sprite.h"
 #include "systems/render/draw_text.h"

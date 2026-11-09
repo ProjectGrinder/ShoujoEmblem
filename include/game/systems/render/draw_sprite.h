@@ -26,7 +26,7 @@ namespace Game::Render
 
             const bool flipX = sprite.flipX ^ (tra.scaleX < 0);
             const bool flipY = sprite.flipY ^ (tra.scaleY<0);
-            const Math::Point scale_point(Math::Point(tra.scaleX, tra.scaleY,1));
+            const auto scale_point(Math::Point(tra.scaleX, tra.scaleY,1));
 
             intent.special.sprite = System::Render::SpriteDrawDesc{
                     .points = {sprite.pos[0] * scale_point, sprite.pos[1] * scale_point, sprite.pos[2] * scale_point, sprite.pos[3] * scale_point},

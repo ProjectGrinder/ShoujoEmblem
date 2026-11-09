@@ -24,7 +24,7 @@ namespace Game::Render
             c.info.layer = layer;
             c.info.vs_id = ASSET_INDEX(mat.vs->id);
             c.info.ps_id = ASSET_INDEX(mat.ps->id);
-            c.info.sp_id = (uint16_t) -1;
+            c.info.sp_id = static_cast<uint16_t>(-1);
             c.info.padding = 0;
         }
     } // namespace Helpers
@@ -44,7 +44,7 @@ namespace Game::Render
             auto &intent = System::Render::IntentStorage::allocate_packed();
             intent.kind = System::Render::DrawKind::KIND_TRIANGLE;
 
-            Helpers::fill_common(intent, material, tra, (uint8_t) tri.layer);
+            Helpers::fill_common(intent, material, tra, static_cast<uint8_t>(tri.layer));
 
             intent.special.triangle = System::Render::TriangleDrawDesc{{tri.points[0], tri.points[1], tri.points[2]}};
         }

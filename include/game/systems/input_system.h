@@ -39,47 +39,6 @@ namespace Game
 
         auto &input_c = input.front().get<Input>();
 
-        input_c.left_pressed = (get_key_state(LEFT) || get_key_state(A)) && !input_c.left_held;
-        input_c.left_held = get_key_state(LEFT) || get_key_state(A);
-        input_c.right_pressed = (get_key_state(RIGHT) || get_key_state(D)) && !input_c.right_held;
-        input_c.right_held = get_key_state(RIGHT) || get_key_state(D);
-        input_c.up_pressed = (get_key_state(UP) || get_key_state(W)) && !input_c.up_held;
-        input_c.up_held = get_key_state(UP) || get_key_state(W);
-        input_c.down_pressed = (get_key_state(DOWN) || get_key_state(S)) && !input_c.down_held;
-        input_c.down_held = get_key_state(DOWN) || get_key_state(S);
-
-        input_c.axis_x = static_cast<float>((get_key_state(RIGHT) || get_key_state(D)) - (get_key_state(LEFT) || get_key_state(A)));
-
-        input_c.axis_y = static_cast<float>((get_key_state(UP) || get_key_state(W)) - (get_key_state(DOWN) || get_key_state(S)));
-
-        input_c.z_pressed = get_key_state(Z) && !input_c.z_held;
-        input_c.z_held = get_key_state(Z);
-
-        input_c.shift_pressed = get_key_state(SHIFT) && !input_c.shift_held;
-        input_c.shift_held = get_key_state(SHIFT);
-
-        input_c.space_pressed = get_key_state(SPACE) && !input_c.space_held;
-        input_c.space_held = get_key_state(SPACE);
-
-        input_c.key1_pressed = get_key_state(KEY1) && !input_c.key1_held;
-        input_c.key1_held = get_key_state(KEY1);
-
-        input_c.key2_pressed = get_key_state(KEY2) && !input_c.key2_held;
-        input_c.key2_held = get_key_state(KEY2);
-
-        input_c.key3_pressed = get_key_state(KEY3) && !input_c.key3_held;
-        input_c.key3_held = get_key_state(KEY3);
-
-        input_c.key4_pressed = get_key_state(KEY4) && !input_c.key4_held;
-        input_c.key4_held = get_key_state(KEY4);
-
-        input_c.tab_pressed = get_key_state(TAB) && !input_c.tab_held;
-        input_c.tab_held = get_key_state(TAB);
-
-        input_c.escape_pressed = get_key_state(ESC) && !input_c.escape_held;
-        input_c.escape_held = get_key_state(ESC);
-
-        input_c.enter_pressed = get_key_state(ENTER) && !input_c.enter_held;
-        input_c.enter_held = get_key_state(ENTER);
+        // input stuff
     }
 } // namespace Game::Battle

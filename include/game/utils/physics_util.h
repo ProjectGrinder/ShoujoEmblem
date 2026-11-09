@@ -35,29 +35,12 @@ namespace Game::Physics
         return old_x + (new_x - old_x) * smoothing;
     }
 
-    inline Math::Point lerp(const Math::Point old_x, const Math::Point new_x, float smoothing)
+    inline Math::Point lerp(const Math::Point old_x, const Math::Point new_x, const float smoothing)
     {
-        Math::Point result;
+        Math::Point result{};
         result.x = lerp(old_x.x, new_x.x, smoothing);
         result.y = lerp(old_x.y, new_x.y, smoothing);
         result.z = lerp(old_x.z, new_x.z, smoothing);
-        return result;
-    }
-
-    template<typename T, typename = std::enable_if_t<std::is_arithmetic_v<T>>>
-    T lerp_at_frame(T old_x, T new_x, int frame)
-    {
-        const float damping = -log(0.01f) / frame;
-        float t = 1.0f - exp(-damping * (float)get_delta_time());
-        return old_x + (new_x - old_x) * t;
-    }
-
-    inline Math::Point lerp_at_frame(const Math::Point old_x, const Math::Point new_x, int frame)
-    {
-        Math::Point result;
-        result.x = lerp_at_frame(old_x.x, new_x.x, frame);
-        result.y = lerp_at_frame(old_x.y, new_x.y, frame);
-        result.z = lerp_at_frame(old_x.z, new_x.z, frame);
         return result;
     }
 
