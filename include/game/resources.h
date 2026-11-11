@@ -6,3 +6,4 @@
 #include "resources/srpg/effect.h"
 #include "resources/srpg/item.h"
 #include "resources/srpg/equip.h"
+#include "resources/srpg/terrain.h"

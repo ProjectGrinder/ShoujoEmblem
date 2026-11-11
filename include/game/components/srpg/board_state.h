@@ -1,36 +1,19 @@
 #pragma once
+#include "game/resources/srpg/state.h"
 
 namespace Game::Srpg
 {
     enum class Objective
     {
-        // Kill every single one of them
-        ROUT,
-        // Kill dood with ID X
-        KILL_TARGET,
-        // Sit on the objective with ID X
-        OBJECTIVE,
-        // Survive X turns
-        SURVIVE,
-    };
-
-    enum class BattlePhase
-    {
-        // Enter combat
-        BEGIN,
-        // Resolve rendering ability triggers
-        ABILITY,
-        // Roll accuracy and calculate damage
-        COMBAT,
-        // Resolve rendering animations
-        RESOLVE,
-        // End, remove abilities that go out of scope
-        END,
+        ROUT, // Kill every single one of them
+        KILL_TARGET, // Kill dood with ID X
+        OBJECTIVE, // Sit on the objective with ID X
+        SURVIVE, // Survive X turns
     };
 
     struct TurnState
     {
-        TurnPhase phase = TurnPhase::WAITING;
+        TurnControlState phase = TurnControlState::WAITING_FOR_INPUT;
         int turnNumber = 0;
         bool isPlayerTurn = false;
 
@@ -38,21 +21,17 @@ namespace Game::Srpg
         {
             switch (phase)
             {
-                case TurnPhase::WAITING:
-                case TurnPhase::MOVING:
-                case TurnPhase::FIGHTING:
-                case TurnPhase::FIELD_SKILLING:
-                case TurnPhase::USING_ITEM:
-                case TurnPhase::REFRESHING_UNIT:
-                    return false;
-                default:
+                case TurnControlState::WAITING_FOR_INPUT:
                     return true;
+                default:
+                    return false;
             }
         }
     };
 
     struct SelectionState
     {
+        CommandType action = CommandType::NONE;
         System::ECS::pid selectedUnit = static_cast<System::ECS::pid>(-1);
         System::ECS::pid selectedTarget = static_cast<System::ECS::pid>(-1);
     };
@@ -87,7 +66,9 @@ namespace Game::Srpg
 
     struct MapResource
     {
-
+        int width{};
+        int height{};
+        std::vector<TerrainId> terrain{};
     };
 
     struct BoardState
